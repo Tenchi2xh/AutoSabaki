@@ -1,7 +1,5 @@
 #!/usr/bin/env python3
 
-# TODO: git
-
 import io
 import re
 import os
