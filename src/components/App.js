@@ -123,6 +123,28 @@ class App extends Component {
 
         setting.events.on('change', ({key}) => this.updateSettingState(key))
         this.updateSettingState()
+
+        var that = this;
+        const socket = new WebSocket('ws://127.0.0.1:3838')
+
+        socket.addEventListener('open', function (event) {
+            console.log('WebSocket connection open')
+        })
+        socket.addEventListener('message', function (event) {
+            console.log('Server: ' + event.data)
+            if (event.data == "resign")
+                that.makeResign()
+            else if (event.data == "pass")
+                that.makeMove([-1, -1])
+            else if (event.data.startsWith("play")) {
+                var elems = event.data.split(" ")
+                that.makeMove([parseInt(elems[1]), parseInt(elems[2])])
+            } else if (event.data.startsWith("new")) {
+                var gameType = event.data.split(" ")[1]
+                that.flashInfoOverlay("Started new " + gameType)
+                that.newFile({suppressAskForSave: true})
+            }
+        })
     }
 
     componentDidMount() {
@@ -258,6 +280,8 @@ class App extends Component {
             evt.returnValue = ' '
         })
 
+        this.setMode('autoplay')
+        this.setBusy(true)
         this.newFile()
     }
 
@@ -475,7 +499,7 @@ class App extends Component {
 
         let {extname} = require('path')
         let extension = extname(file.name).slice(1)
-        let content = await new Promise((resolve, reject) => 
+        let content = await new Promise((resolve, reject) =>
             fs.readFile(file, (err, content) => err ? reject(err) : resolve(content))
         )
 

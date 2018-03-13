@@ -180,14 +180,15 @@ class PlayBar extends Component {
                 h('img', {src: './node_modules/octicons/build/svg/mail-reply.svg', height: 21})
             ),
 
-            h('a',
+            undefined
+            /*h('a',
                 {
                     ref: el => this.menuButtonElement = el,
                     id: 'headermenu',
                     onClick: this.handleMenuClick
                 },
                 h('img', {src: './node_modules/octicons/build/svg/three-bars.svg', height: 21})
-            )
+            )*/
         )
     }
 }

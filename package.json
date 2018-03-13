@@ -66,6 +66,7 @@
     "classnames": "^2.2.5",
     "copy-text-to-clipboard": "^1.0.3",
     "natsort": "^1.0.6",
+    "npm": "^5.7.1",
     "octicons": "^6.0.1",
     "pikaday": "^1.7.0",
     "preact": "^8.2.7",
