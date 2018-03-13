@@ -54,3 +54,9 @@ Temporary Items
 packager.bat
 
 *.pdn
+
+# AutoSabaki
+autogtp
+leelaz_opencl_tuning
+leelaz
+*.sgf
