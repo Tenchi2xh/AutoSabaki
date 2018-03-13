@@ -1,4 +1,9 @@
-# AutoSabaki
+<h1>
+    AutoSabaki
+    <a href="https://github.com/Tenchi2xh/AutoSabaki/releases">
+        <img src=https://img.shields.io/github/downloads/Tenchi2xh/AutoSabaki/total.svg />
+    </a>
+</h1>
 
 <img src="logo.png" width="156" height="156">
 
