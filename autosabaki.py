@@ -45,7 +45,7 @@ def log(client, message):
 def serve_autogtp(client, server):
     log(client, "Spawning autogtp process.")
     process = subprocess.Popen(
-        "./autogtp -k %s" % cwd,
+        "%s -k %s" % (os.path.join(cwd, "autogtp"), cwd),
         shell=True,
         stdout=subprocess.PIPE,
         stderr=subprocess.STDOUT,
