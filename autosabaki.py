@@ -75,8 +75,8 @@ def serve_autogtp(client, server):
                 command = "play %d %d" % (x, y)
                 server.send_message(client, command)
 
-            #sys.stdout.write("%s\t%s\n" % (line, command))
-            #sys.stdout.flush()
+            sys.stdout.write("%s\t%s\n" % (line, command))
+            sys.stdout.flush()
             nextline = b""
             continue
 
@@ -89,8 +89,8 @@ def serve_autogtp(client, server):
             log(client, "Starting game %d." % game_count)
         elif "last game took" in line:
             log(client, line)
-        #sys.stdout.write(nextline.decode("utf-8"))
-        #sys.stdout.flush()
+        sys.stdout.write(nextline.decode("utf-8"))
+        sys.stdout.flush()
 
         nextline = b""
 
